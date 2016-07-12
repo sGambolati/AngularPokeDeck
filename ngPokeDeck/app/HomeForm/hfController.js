@@ -14,7 +14,7 @@
         if (newValue === oldValue) {
             return;
         }
-        $scope.editingPokemon.imageUrl = getImageUrl(newValue);
+        $scope.editingPokemon.imageUrl = $scope.getImageUrl(newValue);
     });
 
     $scope.getImageUrl = function (_number) {
