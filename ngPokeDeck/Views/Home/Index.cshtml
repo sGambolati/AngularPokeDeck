@@ -2,6 +2,9 @@
     Layout = "~/Views/Shared/_Layout-material.cshtml";
     ViewBag.Title = "Home Page";
 }
+
+<h2>Your catched Pokemon</h2>
+
 <div ng-controller="hfController as demo" ng-cloak="">
     <div class='md-padding' layout-sm="column" layout="row" layout-wrap>
         <md-card flex="40" flex-sm="80" md-theme="dark-blue" md-theme-watch="" ng-repeat="poke in catchedPokemons">
@@ -16,7 +19,7 @@
             </md-card-title>
             <md-card-actions layout="row" layout-align="end center">
                 <md-button>Edit data</md-button>
-                <md-button>Release</md-button>
+                <md-button ng-click="delete(poke.Id)">Release</md-button>
             </md-card-actions>
         </md-card>
     </div>

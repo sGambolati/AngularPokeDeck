@@ -37,5 +37,15 @@ namespace ngPokeDeck.Controllers
         {
             return this.PokemonRepository.List().ToList();
         }
+
+        public void Delete(int id)
+        {
+            var pokemon = this.PokemonRepository.Get(id);
+            if (pokemon == null)
+            {
+                //error
+            }
+            this.PokemonRepository.Remove(pokemon);
+        }
     }
 }

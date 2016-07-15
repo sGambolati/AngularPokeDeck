@@ -1,48 +1,55 @@
-﻿
-@{
-    ViewBag.Title = "CatchPokemon";
+﻿@{
+    Layout = "~/Views/Shared/_Layout-material.cshtml";
+    ViewBag.Title = "Catch a Pokemon";
 }
 
-<h2>CatchPokemon</h2>
+<form>
+    <div ng-controller="hfController" class="md-padding" ng-cloak layout="column">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">Catch a  Pokemon</span>
+                    @*<span class="md-subhead">Tell us a little about you.</span>*@
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <div layout="column" layout-align="space-between left">
+                    <md-input-container>
+                        <label for="Number">Number</label>
+                        <input flex="80" id="Number" name="Number" type="number" ng-model="editingPokemon.Number" />
+                    </md-input-container>
 
-<form class="form-horizontal" role="form" novalidate ng-controller="hfController">
-    <fieldset>
-        <legend>
-            Pokemon List
-        </legend>
+                    <md-input-container flex="80">
+                        <label>Image</label>
+                        <div>
+                            <img ng-src="{{editingPokemon.imageUrl}}" />
+                        </div>
+                    </md-input-container>
 
-        <input type="hidden" ng-model="editingPokemon.Id" />
+                    <md-input-container>
+                        <label for="Name">Name</label>
+                        <input flex="80" id="Name" name="Name" type="text" ng-model="editingPokemon.Name" />
+                    </md-input-container>
 
-        <div class="form-group">
-            <label class="control-label" for="Number">Number</label>
-            <input id="Number" name="Number" type="number" class="form-control" ng-model="editingPokemon.Number" />
-        </div>
+                    <md-input-container>
+                        <label for="Description">Description</label>
+                        <textarea flex="80" name="Description" id="Description" ng-model="editingPokemon.Description" rows="3"></textarea>
+                    </md-input-container>
 
-        <div class="form-group">
-            <label class="control-label" for="Number">Image</label>
-            <br/>
-            <div class="">
-                <img ng-src="{{editingPokemon.imageUrl}}" />
-            </div>
-        </div>
+                    <md-input-container>
+                        <label for="Type">Type</label>
+                        <md-select flex="80" name="Type" id="Type" ng-model="editingPokemon.Type">
+                            <md-option ng-repeat="pType in pokemonTypes" value="{{pType.Key}}">
+                                {{pType.Value}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
 
-        <div class="form-group">
-            <label class="control-label" for="Name">Name</label>
-            <input id="Name" name="Name" type="text" class="form-control" ng-model="editingPokemon.Name" />
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">Type</label>
-            <select name="type" id="type" class="form-control"
-                    ng-model="editingPokemon.Type"
-                    ng-options="pType.Key as pType.Value for pType in pokemonTypes"></select>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">Description</label>
-            <textarea class="form-control" name="description" id="description" ng-model="editingPokemon.Description" rows="3"></textarea>
-        </div>
-
-        <input type="button" class="btn btn-primary" value="Enviar" ng-click="submit()" />
-    </fieldset>
+                </div>
+            </md-card-content>
+            <md-card-actions>
+                <md-button class="md-raised md-primary" ng-click="submit()">Catch!</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
 </form>

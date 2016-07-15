@@ -13,12 +13,7 @@
 </head>
 <body>
     <div class="container body-content">
-        @*<br />
-        <br />
-        <br />
-        <br />*@
-        @RenderBody()
-        
+        @RenderBody()        
         
         <footer>
             <md-content ng-controller="footerController as footer" class="md-padding floating-dial-buttons" layout="column" ng-cloak="">
@@ -30,17 +25,7 @@
                             </md-button>
                         </md-fab-trigger>
 
-                        <md-fab-actions>
-                            @*<md-button aria-label="Twitter" class="md-fab md-raised md-mini">
-                                <md-icon md-svg-src="/img/icons/twitter.svg" aria-label="Twitter"></md-icon>
-                            </md-button>
-                            <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
-                                <md-icon md-svg-src="/img/icons/facebook.svg" aria-label="Facebook"></md-icon>
-                            </md-button>
-                            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
-                                <md-icon md-svg-src="/img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
-                            </md-button>*@
-
+                        <md-fab-actions>                            
                             <md-button aria-label="{{btn.name}}" class="md-fab md-raised md-mini" ng-repeat="btn in footer.availableOptions" href="{{btn.url}}">
                                 <md-icon md-svg-src="{{btn.icon}}" aria-label="{{btn.name}}"></md-icon>
                             </md-button>
@@ -54,9 +39,7 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @*@Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/angularScripts")*@
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>

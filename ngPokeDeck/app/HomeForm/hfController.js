@@ -1,4 +1,4 @@
-﻿ngPokeDecApp.controller('hfController', function ($scope, DataService) {
+﻿ngPokeDecApp.controller('hfController', function ($scope, $location, DataService) {
     $scope.pokemonTypes = [];
     $scope.catchedPokemons = [];
 
@@ -30,7 +30,7 @@
     DataService.getPokemonTypes().then(function (result) {
         $scope.pokemonTypes = result.data;
     }, function (result) {
-        debugger;
+        //debugger;
     });
 
     DataService.getCatchedPokemons().then(function (result) {
@@ -47,10 +47,20 @@
 
     $scope.submit = function () {
         DataService.addPokemon($scope.editingPokemon).then(function (result) {
-            alert("Pokemon inserted: " + result.data)
+            //alert("Pokemon inserted: " + result.data);
+            $location.path('/Home');
         });
     };
 
+    $scope.delete = function (id) {
+        DataService.deletePokemon(id).then(function (result) {
+            DataService.getCatchedPokemons().then(function (result) {
+                $scope.catchedPokemons = result.data;
+            });
+        }, function (result) {
+            //Error
+        });
+    };
 })
 .config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
