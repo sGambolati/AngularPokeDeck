@@ -28,3 +28,12 @@ img.logo {
     width: 100px;
     border: 1px solid #1a6ecc;
 }
+
+.floating-dial-buttons {
+    position: fixed;
+    bottom: -40px;
+    float: right;
+    height: 300px;
+    right: 10px;
+    background-color:transparent;
+}

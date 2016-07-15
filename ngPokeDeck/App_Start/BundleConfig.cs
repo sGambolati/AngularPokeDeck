@@ -20,21 +20,29 @@ namespace ngPokeDeck
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
+                      //"~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      //"~/Content/bootstrap.css",
+                      "~/Content/angular-material.css",
                       "~/Content/site.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularScripts").Include(
                 "~/scripts/angular.js",
-                //"~/scripts/angular-route.js",
-                "~/scripts/angular-ui/ui-bootstrap-tpls.js",
+                "~/Scripts/angular-animate.js",
+                "~/Scripts/angular-aria.js",
+                "~/Scripts/angular-messages.js",
+                "~/Scripts/angular-material/angular-material.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularAppScripts").Include(
                 "~/app/PokeDecApp.js",
                 "~/app/DataService.js",
                 //"~/app/ValidationDirective.js",
-                "~/app/HomeForm/hfController.js"));
+                "~/app/HomeForm/hfController.js",
+                "~/app/FooterForm/footerController.js"
+                ));
 
         }
     }

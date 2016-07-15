@@ -51,5 +51,7 @@
         });
     };
 
-
+})
+.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('dark-blue').backgroundPalette('blue').dark();
 });

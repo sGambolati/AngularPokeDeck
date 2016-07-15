@@ -1,1 +1,1 @@
-﻿var ngPokeDecApp = angular.module('ngPokeDeckApp', ['ui.bootstrap']);
+﻿var ngPokeDecApp = angular.module('ngPokeDeckApp', ['ngMaterial', 'ngMessages', 'material.svgAssetsCache' ]);

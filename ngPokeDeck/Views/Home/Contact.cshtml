@@ -1,17 +1,23 @@
-﻿@{
-    ViewBag.Title = "Contact";
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout-material.cshtml";
+    ViewBag.Title = "Home Page";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
-
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <div ng-controller="hfController as demo" ng-cloak="">
+        <div class='md-padding' layout-sm="column" layout="row" layout-wrap>
+            <md-card flex="40" flex-sm="80" md-theme="dark-blue" md-theme-watch="" ng-repeat="poke in catchedPokemons">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{poke.Name}}</span>
+                        <span class="md-subhead">{{poke.Description}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-sm card-media"><img ng-src="{{getImageUrl(poke.Number)}}" alt="{{poke.Name}}"></div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Edit data</md-button>
+                    <md-button>Release</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>

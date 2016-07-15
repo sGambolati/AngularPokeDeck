@@ -1,18 +1,23 @@
 ﻿@{
+    Layout = "~/Views/Shared/_Layout-material.cshtml";
     ViewBag.Title = "Home Page";
 }
-
-<div class="row" ng-controller="hfController">
-    <div class="col-sm-6 col-md-4" ng-repeat="poke in catchedPokemons">
-        <div class="thumbnail">
-            <img ng-src="{{getImageUrl(poke.Number)}}" alt="{{poke.Name}}">
-            <div class="caption">
-                <h3>{{poke.Name}}</h3>
-                <p>{{poke.Description}}</p>
-                @*<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>*@
-            </div>
-        </div>
+<div ng-controller="hfController as demo" ng-cloak="">
+    <div class='md-padding' layout-sm="column" layout="row" layout-wrap>
+        <md-card flex="40" flex-sm="80" md-theme="dark-blue" md-theme-watch="" ng-repeat="poke in catchedPokemons">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{poke.Name}}</span>
+                    <span class="md-subhead">{{poke.Description}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media"><img ng-src="{{getImageUrl(poke.Number)}}" alt="{{poke.Name}}"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Edit data</md-button>
+                <md-button>Release</md-button>
+            </md-card-actions>
+        </md-card>
     </div>
-
 </div>
-

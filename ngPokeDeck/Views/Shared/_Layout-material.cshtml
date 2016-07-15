@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html ng-app="ngPokeDeckApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/css")
+    @*<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">*@
+    <link rel="stylesheet" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5-master-7f01138/angular-material.css" />
+    @*<link rel="stylesheet" href="https://material.angularjs.org/1.1.0-rc.5-master-7f01138/docs.css" />*@
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+</head>
+<body>
+    <div class="container body-content">
+        @*<br />
+        <br />
+        <br />
+        <br />*@
+        @RenderBody()
+        
+        
+        <footer>
+            <md-content ng-controller="footerController as footer" class="md-padding floating-dial-buttons" layout="column" ng-cloak="">
+                <div class="lock-size" layout="row" layout-align="end center">
+                    <md-fab-speed-dial md-open="footer.isOpen" md-direction="{{footer.selectedDirection}}" ng-class="footer.selectedMode">
+                        <md-fab-trigger>
+                            <md-button aria-label="menu" class="md-fab md-warn">
+                                <md-icon md-svg-src="/img/icons/menu.svg"></md-icon>
+                            </md-button>
+                        </md-fab-trigger>
+
+                        <md-fab-actions>
+                            @*<md-button aria-label="Twitter" class="md-fab md-raised md-mini">
+                                <md-icon md-svg-src="/img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+                            </md-button>
+                            <md-button aria-label="Facebook" class="md-fab md-raised md-mini">
+                                <md-icon md-svg-src="/img/icons/facebook.svg" aria-label="Facebook"></md-icon>
+                            </md-button>
+                            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+                                <md-icon md-svg-src="/img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+                            </md-button>*@
+
+                            <md-button aria-label="{{btn.name}}" class="md-fab md-raised md-mini" ng-repeat="btn in footer.availableOptions" href="{{btn.url}}">
+                                <md-icon md-svg-src="{{btn.icon}}" aria-label="{{btn.name}}"></md-icon>
+                            </md-button>
+
+                        </md-fab-actions>
+                    </md-fab-speed-dial>
+                </div>
+            </md-content>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angularScripts")*@
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.0-rc.5-master-7f01138/angular-material.js"></script>
+
+    @Scripts.Render("~/bundles/angularAppScripts")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
