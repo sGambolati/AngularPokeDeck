@@ -1,4 +1,4 @@
-﻿ngPokeDecApp.controller('hfController', function ($scope, $location, DataService) {
+﻿ngPokeDecApp.controller('hfController', function ($scope, $window, DataService) {
     $scope.pokemonTypes = [];
     $scope.catchedPokemons = [];
 
@@ -47,8 +47,7 @@
 
     $scope.submit = function () {
         DataService.addPokemon($scope.editingPokemon).then(function (result) {
-            //alert("Pokemon inserted: " + result.data);
-            $location.path('/Home');
+            $window.location.href = '/Home';
         });
     };
 

@@ -29,8 +29,12 @@ namespace ngPokeDeck.Controllers
 
         public ActionResult CatchPokemon()
         {
-
             return View();
+        }
+
+        public ActionResult EditCatch(int id)
+        {
+            return View("CatchPokemon");
         }
     }
 }
